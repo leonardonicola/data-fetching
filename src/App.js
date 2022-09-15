@@ -7,6 +7,7 @@ import fetchApi from "./utils/fetch-api";
 function App() {
   const [users, setUsers] = useState([]);
   const [counter, setCounter] = useState(4)
+  const [search, setSearchName] = useState('')
 
   //fetching data via Axios
 
@@ -34,10 +35,13 @@ function App() {
 
   return (
     <div className="app">
+      <input type="text" onChange={e => setSearchName(e.target.value)}/>
       <div className="container">
-        <Cards usersList={users} counter={counter} />
+        <Cards usersList={users} counter={counter} search={search}/>
       </div>
-      <button onClick={() => setCounter(prevState => prevState + 4)}>VER MAIS</button>
+      {counter < users.length &&
+        <button onClick={() => setCounter(prevState => prevState + 4)}>VER MAIS</button>
+      }
     </div>
   );
 }

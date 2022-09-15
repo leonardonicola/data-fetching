@@ -1,10 +1,11 @@
-import './Cards.css'
+import "./Cards.css";
 
-const Cards = ({ usersList, counter }) => {
+const Cards = ({ usersList, counter, search }) => {
   return (
     <>
-      {usersList &&
+      {(search &&
         usersList
+          .filter((el) => el.title.toLowerCase().includes(search.toLowerCase()))
           .filter((_, i) => i < counter)
           .map((user) => (
             <div key={user.id} className="card">
@@ -15,7 +16,20 @@ const Cards = ({ usersList, counter }) => {
                 <p>{user.body}</p>
               </div>
             </div>
-          ))}
+          ))) ||
+        (!!usersList &&
+          usersList
+            .filter((_, i) => i < counter)
+            .map((user) => (
+              <div key={user.id} className="card">
+                <div className="card__header">
+                  <h4>{user.title}</h4>
+                </div>
+                <div className="card__infos">
+                  <p>{user.body}</p>
+                </div>
+              </div>
+            )))}
     </>
   );
 };
