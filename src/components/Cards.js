@@ -1,29 +1,18 @@
-import React from "react";
+import './Cards.css'
 
-const Cards = ({ usersList }) => {
+const Cards = ({ usersList, counter }) => {
   return (
     <>
       {usersList &&
         usersList
-          .filter((_, i) => i < 4)
+          .filter((_, i) => i < counter)
           .map((user) => (
             <div key={user.id} className="card">
               <div className="card__header">
-                <h4>{user.name}</h4>
+                <h4>{user.title}</h4>
               </div>
               <div className="card__infos">
-              <p>
-                  <span>ID: </span>
-                  {user.id}
-                </p>
-                <p>
-                  <span>Username: </span>
-                  {user.username}
-                </p>
-                <p>
-                  <span>Email: </span> 
-                  {user.email}
-                </p>
+                <p>{user.body}</p>
               </div>
             </div>
           ))}

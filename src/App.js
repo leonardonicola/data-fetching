@@ -6,6 +6,7 @@ import fetchApi from "./utils/fetch-api";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [counter, setCounter] = useState(4)
 
   //fetching data via Axios
 
@@ -34,8 +35,9 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <Cards usersList={users} />
+        <Cards usersList={users} counter={counter} />
       </div>
+      <button onClick={() => setCounter(prevState => prevState + 4)}>VER MAIS</button>
     </div>
   );
 }

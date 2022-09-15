@@ -1,0 +1,32 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all .5s ease;
+    cursor: default;
+  }
+  
+  .card__header{
+    padding: 15px 0;
+    height: auto;
+    min-height: fit-content;
+    width: 100%;
+    background-color: var(--color);
+    font-weight: bold;
+  }
+  
+  .card__infos{
+    padding: 15px;
+    text-align: initial;
+  }
+  
+  .card__infos span{
+    font-weight: bold;
+  }
+  
+  .card:hover{
+    transform: scale(1.02);
+  }
+  
