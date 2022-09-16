@@ -10,6 +10,7 @@ function App() {
   const [search, setSearchName] = useState("");
 
   //fetching data via Axios
+  
   /* 
   const handleFetchAxios = async () => {
     const { data } = await loadPost();
