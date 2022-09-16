@@ -1,34 +1,39 @@
-:root{
-  --color: rgb(72, 153, 153)
+:root {
+  --color: rgb(72, 153, 153);
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 30px;
   justify-content: center;
   text-align: center;
 }
 
-.app{
-  font-family: 'Arial';
+.app {
+  font-family: "Arial";
   min-height: 100vh;
   padding: 50px;
   background-color: aliceblue;
 }
 
-
-button{
+button {
   display: flex;
   margin: 20px auto;
   border: 0;
   border-radius: 6px;
   padding: 12px;
   background-color: var(--color);
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   cursor: pointer;
 }
 
-button:hover{
+button:hover {
   transform: scale(1.02);
+}
+
+input {
+  padding: 5px;
+  width: 400px;
+  font-size: 1.02em;
 }
