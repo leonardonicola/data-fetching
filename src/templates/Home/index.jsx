@@ -6,11 +6,11 @@ import fetchApi from "../../utils/fetch-api";
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [counter, setCounter] = useState(8);
+  const [counter, setCounter] = useState(4);
   const [search, setSearchName] = useState("");
 
   //fetching data via Axios
-  
+
   /* 
   const handleFetchAxios = async () => {
     const { data } = await loadPost();
@@ -45,13 +45,26 @@ function App() {
       <label>
         <h1>Pesquise: </h1>
         <input
+          data-testid="search"
           type="text"
           value={search}
           onChange={(e) => setSearchName(e.target.value)}
         />
       </label>
       <div className="container">
-        <Cards usersList={users} counter={counter} search={search} />
+        {(!!search && !!users &&
+          users
+            .filter((el) => el.title.toLowerCase().includes(search.toLowerCase()))
+            .map((el) => (
+              <Cards title={el.title} body={el.body} id={el.id} />
+            ))) ||
+        (!!users &&
+          users
+            .filter((el) => el.id <= counter)
+            .map((el) => (
+              <Cards title={el.title} body={el.body} id={el.id} />
+            ))) 
+          }
       </div>
       {!!search || (
         <button onClick={() => setCounter((prevState) => prevState + 4)}>
