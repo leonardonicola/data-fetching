@@ -12,8 +12,13 @@ describe("<Home/>", () => {
         const {getByTestId} = render(<Home />)
         
         const input = getByTestId('search')
-        const valorQualquer = 'lorem'
+        const valorQualquer = 'lorem' 
         userEvent.type(input, valorQualquer)
-        expect(valorQualquer).toEqual('lorem')
+        expect(valorQualquer).toEqual('lorem') 
+    })
+
+    it('should match snapshot', () => {
+        const {container} = render(<Home/>)
+        expect(container.firstChild).toMatchSnapshot()
     })
 })
