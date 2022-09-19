@@ -51,8 +51,8 @@ function App() {
           onChange={(e) => setSearchName(e.target.value)}
         />
       </label>
-      <div className="container">
-        {(!!search && !!users &&
+      <div className="container" data-testid="posts">
+        {(users.length === 0 && <h1>Sem posts!</h1>) || (!!search &&
           users
             .filter((el) => el.title.toLowerCase().includes(search.toLowerCase()))
             .map((el) => (
